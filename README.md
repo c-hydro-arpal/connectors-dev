@@ -1,1 +1,1 @@
-# connectoris-dev
+# connectors-dev
