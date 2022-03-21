@@ -30,22 +30,22 @@
   "data":{
     "static": {
       "sections": {
-        "folder_name": "/home/fabio/Desktop/PyCharm_ARPAL/fp-ws/data_static/shapefile/",
+        "folder_name": "/home/fabio/Desktop/PyCharm_ARPAL/connectors-ws/data_static/shapefile/",
         "file_name": "fp_sections_liguria.shp"
       }
     },
     "dynamic": {
       "source": {
-        "folder_name": "/home/fabio/Desktop/Work_Area/Code_Development/Workspace/PyCharm_ARPAL/fp-ws/data_dynamic/source/rs/",
+        "folder_name": "/home/fabio/Desktop/PyCharm_ARPAL/connectors-ws/data_dynamic/source/LivelliPortateOsservate/",
         "file_name": "LivelloPortate_{section_code}_{source_datetime_reference}_{source_datetime_run}.txt",
         "fields": {"time":  "a1sDateVet", "discharge":  "a1dQOssMean", "water_level": "a1dLivOssMean"}
       },
       "ancillary": {
-        "folder_name": "/home/fabio/Desktop/Work_Area/Code_Development/Workspace/PyCharm_ARPAL/fp-ws/data_dynamic/ancillary/ws/{ancillary_sub_path_time}/",
+        "folder_name": "/home/fabio/Desktop/PyCharm_ARPAL/connectors-ws/data_dynamic/ancillary/river_stations/{ancillary_sub_path_time}/",
         "file_name": "{ancillary_var_name}_{domain_name}_{ancillary_datetime}.workspace"
       },
       "destination": {
-        "folder_name": "/home/fabio/Desktop/Work_Area/Code_Development/Workspace/PyCharm_ARPAL/fp-ws/data_dynamic/source/rs/{destination_sub_path_time}",
+        "folder_name": "/home/fabio/Desktop/PyCharm_ARPAL/connectors-ws/data_dynamic/outcome/river_stations/{destination_sub_path_time}",
         "file_name": "{destination_var_name}_{domain_name}_{destination_datetime}.csv",
         "fields": ["longitude", "latitude", "discharge", "time", "units", "catchment", "name", "tag", "type",
           "code", "hmc_id_x", "hmc_id_y"]
@@ -53,7 +53,7 @@
     }
   },
   "log": {
-    "folder_name": "/home/fabio/Desktop/Work_Area/Code_Development/Workspace/PyCharm_ARPAL/fp-ws/log/",
+    "folder_name": "/home/fabio/Desktop/PyCharm_ARPAL/connectors-ws/log/",
     "file_name": "hyde_adapter_datasets_rs_log.txt",
     "format": "%(asctime)s %(name)-12s %(levelname)-8s %(filename)s:[%(lineno)-6s - %(funcName)20s()] %(message)s"
   },

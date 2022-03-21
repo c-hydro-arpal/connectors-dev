@@ -95,7 +95,7 @@ class DriverData:
     # -------------------------------------------------------------------------------------
     # Method to get time reference
     @staticmethod
-    def get_time_reference(time_step, time_period=48, time_frequency='H', time_rounding='D'):
+    def get_time_reference(time_step, time_period=72, time_frequency='H', time_rounding='D'):
         time_reference = pd.date_range(end=time_step, periods=time_period, freq=time_frequency)[0]
         time_reference = time_reference.round(time_rounding)
         return time_reference

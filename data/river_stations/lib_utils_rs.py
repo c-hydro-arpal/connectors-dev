@@ -111,7 +111,7 @@ def get_data_rs(file_name,
 
 # -------------------------------------------------------------------------------------
 # Method to fill obj hydro
-def fill_data_rs(obj_hydro, obj_method_filling=None, obj_limit_filling=10,
+def fill_data_rs(obj_hydro, obj_method_filling=None, obj_method_filtering=None, obj_limit_filling=10,
                  obj_value_min=0.0, obj_value_max=None, obj_nodata=-9999.0):
 
     if obj_value_min is not None:
@@ -136,7 +136,11 @@ def fill_data_rs(obj_hydro, obj_method_filling=None, obj_limit_filling=10,
         obj_hydro_filled = deepcopy(obj_hydro)
 
     obj_hydro_filled = obj_hydro_filled.fillna(obj_nodata)
-    obj_hydro_filtered = obj_hydro_filled[time_valid_first:time_valid_last]
+
+    if obj_method_filtering:
+        obj_hydro_filtered = obj_hydro_filled[time_valid_first:time_valid_last]
+    else:
+        obj_hydro_filtered = deepcopy(obj_hydro_filled)
 
     return obj_hydro_filtered
 
