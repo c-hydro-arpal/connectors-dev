@@ -149,7 +149,7 @@ def fill_data_rs(obj_hydro, obj_method_filling=None, obj_method_filtering=None, 
 
 # -------------------------------------------------------------------------------------
 # Method to organize river stations data into a dataframe
-def organize_data_rs(time_reference, data_df, sections_df,
+def organize_data_rs(time_reference, data_df, sections_df, no_data=-9999.0,
                      column_code_data='code', column_discharge_data='discharge', column_time_data='time'):
 
     section_times = list(data_df.index)
@@ -171,6 +171,10 @@ def organize_data_rs(time_reference, data_df, sections_df,
         section_df_merged = None
         for section_key, section_data in section_obj.items():
             section_df_step = sections_df.loc[sections_df[column_code_data] == section_key, :]
+
+            if np.isnan(section_data):
+                section_data = no_data
+
             section_df_step[column_discharge_data] = section_data
             section_df_step[column_time_data] = time_step
 

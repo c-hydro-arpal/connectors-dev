@@ -451,7 +451,8 @@ class DriverData:
             folder_name_anc_list = list_folder(folder_name_anc_main)
             for folder_name_anc_step in folder_name_anc_list:
                 if os.path.exists(folder_name_anc_step):
-                    os.rmdir(folder_name_anc_step)
+                    if not os.listdir(folder_name_anc_step):
+                        os.rmdir(folder_name_anc_step)
 
     # -------------------------------------------------------------------------------------
 
