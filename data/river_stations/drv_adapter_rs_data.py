@@ -56,13 +56,13 @@ class DriverData:
 
         self.section_code = self.get_section_code(self.sections_collection, tag_section_code=self.tag_section_code)
         self.time_range = self.collect_file_time()
-        self.time_reference = self.get_time_reference(self.time_step)
+        # self.time_reference = self.get_time_reference(self.time_step)
 
         self.folder_name_src_dset_raw = self.src_dict[self.tag_folder_name]
         self.file_name_src_dset_raw = self.src_dict[self.tag_file_name]
         self.file_fields_src_dset = self.src_dict[self.tag_file_fields]
         self.file_path_src_dset_obj = self.collect_file_obj(self.folder_name_src_dset_raw, self.file_name_src_dset_raw,
-                                                             extra_args={'section_code': self.section_code})
+                                                            extra_args={'section_code': self.section_code})
 
         self.folder_name_anc_dset_raw = self.ancillary_dict[self.tag_folder_name]
         self.file_name_anc_dset_raw = self.ancillary_dict[self.tag_file_name]
@@ -122,7 +122,7 @@ class DriverData:
     def collect_file_obj(self, folder_name_raw, file_name_raw, extra_args=None):
 
         domain_name = self.domain_name
-        datetime_reference = self.time_reference
+        # datetime_reference = self.time_reference
 
         section_code = None
         if extra_args is not None:
@@ -138,11 +138,13 @@ class DriverData:
 
                 for datetime_step in self.time_range:
 
+                    dateref_step = self.get_time_reference(datetime_step)
+
                     template_values_step = {
                         'domain_name': domain_name,
                         'ancillary_var_name': variable_step,
                         'destination_var_name': variable_step,
-                        'source_datetime_reference': datetime_reference,
+                        'source_datetime_reference': dateref_step,
                         'source_datetime_run': datetime_step,
                         'source_sub_path_time': datetime_step,
                         'ancillary_datetime': datetime_step, 'ancillary_sub_path_time': datetime_step,

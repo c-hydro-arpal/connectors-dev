@@ -23,7 +23,7 @@
   },
   "time": {
     "time_now": "202104271000",
-    "time_period": 3,
+    "time_period": 10,
     "time_frequency": "H",
     "time_rounding": "H"
   },
